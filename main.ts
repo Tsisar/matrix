@@ -10,7 +10,11 @@ input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
 function doMatrix () {
     x = randint(0, 4)
     while (list[x] == 0) {
-        x = randint(0, 4)
+        if (x < 4) {
+            x += 1
+        } else {
+            x = 0
+        }
     }
     max = list[x] - 1
     for (let y = 0; y <= max; y++) {
@@ -63,7 +67,7 @@ input.onGesture(Gesture.LogoDown, function () {
     reset()
     logo = 1
 })
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
     reset()
     basic.showIcon(IconNames.Heart, pause2)
     basic.showIcon(IconNames.SmallHeart, pause2)
@@ -88,11 +92,9 @@ logo = 0
 repeat = 0
 basic.forever(function () {
     reset()
-    while (repeat < 24) {
+    while (repeat < 25) {
         repeat += 1
         doMatrix()
     }
     basic.pause(pause2)
-    repeat = 0
-    basic.clearScreen()
 })
