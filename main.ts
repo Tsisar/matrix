@@ -95,6 +95,9 @@ function remove () {
         }
         basic.pause(pause2)
     }
+    basic.setLedColors(0xff0000, 0xff0000, 0xff0000)
+    basic.pause(pause2)
+    basic.turnRgbLedOff()
 }
 let max = 0
 let list: number[] = []
@@ -108,6 +111,7 @@ pause2 = 100
 logo = 0
 repeat = 0
 heart = false
+music.playTone(2000, music.beat(BeatFraction.Quarter))
 basic.forever(function () {
     reset()
     if (heart) {
