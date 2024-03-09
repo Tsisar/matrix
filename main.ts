@@ -41,6 +41,7 @@ input.onGesture(Gesture.TiltLeft, function () {
 })
 input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
     repeat = 24
+    remove()
 })
 input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     if (pause2 < 1000) {
@@ -85,7 +86,6 @@ function reset () {
     for (let index = 0; index <= 4; index++) {
         list[index] = 5
     }
-    remove()
     basic.clearScreen()
 }
 function remove () {
